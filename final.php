@@ -1,7 +1,7 @@
 <?php
  include('connection.php');
  session_start();
- $qry="SELECT name,username,Courses,rollno,emailid,mobile,paidMessFee,paidSemesterFee,librarydue,messdue FROM logindatabase WHERE username= '".$_SESSION['loginuserid']."';";
+ $qry="SELECT name,username,Courses,rollno,emailid,mobile,paidMessFee,paidSemesterFee,librarydue,messdue,type,Gender FROM logindatabase WHERE username= '".$_SESSION['loginuserid']."';";
  $records=mysqli_query($connect,$qry) or die("error getting from database");
 
  while($data=mysqli_fetch_assoc($records)){
@@ -16,6 +16,8 @@
                 $messdue=$data['messdue'];
                 $librarydue=$data['librarydue'];
                 $username=$data['username'];
+                $type=$data['type'];
+                $Gender=$data['Gender'];
                 
             }
 
@@ -167,7 +169,30 @@
           
         </td>
       </tr>
-
+       <tr class="row">
+        <td class="col s6">
+          Type
+          
+        </td>
+        <td class="col s6">
+          <?php
+          echo $type;
+          ?>
+          
+        </td>
+      </tr>
+       <tr class="row">
+        <td class="col s6">
+          Gender
+          
+        </td>
+        <td class="col s6">
+          <?php
+          echo $Gender;
+          ?>
+          
+        </td>
+      </tr>
        <tr class="row">
         <td class="col s6">
           Courses Registered

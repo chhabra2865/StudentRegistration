@@ -7,7 +7,7 @@
 	$messfee=$_REQUEST["messfee"];
 		
 
-	$qry="UPDATE logindatabase SET semesterfee='$semfee',messfee='$messfee' WHERE name='$name';";
+	$qry="UPDATE logindatabase SET librarydue='$semfee',messdue='$messfee' WHERE name='$name';";
 	$r=mysqli_query($connect,$qry) or die("Error!!!!");
 	if($r){
 		echo "successfully done";

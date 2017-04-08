@@ -22,6 +22,11 @@ session_start();
     		padding:5%;
     	}
     </style>
+    <script type="text/javascript">
+        $(document).ready(function(){
+        $('ul.tabs').tabs();
+      });
+      </script>
 </head>
 <body>
 	<!--Import jQuery before materialize.js-->
@@ -31,7 +36,7 @@ session_start();
    
       <div class="row" style="background-color: #e1f5fe;">
       <div class="col s12 center">
-        <p style='color:#00695c;font-size: 20px'>
+        <p style='color:#00695c;font-size: 30px'>
         <b>REGISTRATION PORTAL</b>
         </p>
 
@@ -39,10 +44,23 @@ session_start();
        <a class="waves-effect waves-light btn" href="logout.php">LogOut</a>
       </div>
 
-
+      <!-- <div>
+      <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo right">Logo</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href="feePayment.php">Fee Payment</a></li>
+          <li><a href="badges.html">Components</a></li>
+          <li><a href="collapsible.html">JavaScript</a></li>
+        </ul>
+        </div>
+      </nav>
+      </div>
+ -->
       <div class="row">
     <div class="col s12">
-      <ul >
+      <ul>
+        <!-- <li class="tab col s2"><a href="formFilling.php">Form Filling</a></li> -->
       	<li class="tab col s2"><a href="feePayment.php">Fee Payment</a></li>
         <li class="tab col s2"><a href="duesClearance.php">Dues Clearance</a></li>
         <li class="tab col s2"><a href="roomAllotment.php">Room Allotment</a></li> 

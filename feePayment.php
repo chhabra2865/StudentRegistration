@@ -16,7 +16,7 @@
 
           $qry="UPDATE logindatabase SET paidMessFee='PAID' WHERE username= '".$_SESSION['loginuserid']."';";
           $r=mysqli_query($connect,$qry) or die("Error!!!!");
-          echo"<script>Alert('MESS')</script>";
+          echo "<script>Alert('MESS')</script>";
 
       }
 
@@ -29,6 +29,8 @@
           
           $qry="UPDATE logindatabase SET paidSemesterFee='PAID' WHERE username= '".$_SESSION['loginuserid']."';";
           $r=mysqli_query($connect,$qry) or die("Error!!!!");
+          echo "<script>Alert('SEMESTER')</script>";
+
       }
 
       elseif(isset($_POST['xsem']) and $paidSemesterFee=="PAID"){
@@ -108,9 +110,9 @@
       </div>
 <br>
    <p><b>Mess Fee</b></p>
-    <button class="waves-effect waves-light btn" name="xmess" id='xmess' >Pay MessFee</button><br>
+    <button class="waves-effect waves-light btn" name="xmess" id='xmess'>Pay MessFee</button><br>
     <p><b>Semester Fee</b></p>
-    <button class="waves-effect waves-light btn" name ="xsem" id='xsem' onclick='Alert("Semester")'>Pay SemesterFee</button>
+    <button class="waves-effect waves-light btn" name ="xsem" id='xsem'>Pay SemesterFee</button>
             
             </form>
             </div>

@@ -2,9 +2,7 @@
 
   include('connection.php');
 
-  
-  //****************
-  //LOGIN PART
+
   if(isset($_POST['xlogin'])){
     $loginuserid=$_POST['loginuserid'];
     $loginpassword=$_POST['loginpassword'];
@@ -40,6 +38,7 @@
      else{ 
             echo "<div class=\"alert alert-danger\">Username/Password is Incorrect.</div>"; 
     }
+  
   }
 if(isset($_POST['xregister'])){
     $xuserid=$_POST['xuserid'];
@@ -50,8 +49,9 @@ if(isset($_POST['xregister'])){
     $number=$_POST['xnumber'];
     $xpassword=$_POST['xpassword'];
       $type=$_POST['type'];
+      $Gender=$_POST['Gender'];
 
-     $query="INSERT into logindatabase(username,password,name,mobile,emailid,rollno,type) values ('$xuserid','$password','$name','$number','$email','$rollnumber','$type');";
+     $query="INSERT into logindatabase(username,password,name,mobile,emailid,rollno,type,Gender) values ('$xuserid','$password','$name','$number','$email','$rollnumber','$type','$Gender');";
      //echo $query;
      $r=mysqli_query($connect,$query);
      if($r){
@@ -90,8 +90,8 @@ if(isset($_POST['xregister'])){
 
       <div class="row" style="background-color: #e1f5fe;">
       <div class="col s12 center">
-        <p style='color:#00695c;font-size: 20px'>
-        <b>REGISRATION PORTAL</b>
+        <p style='color:#00695c;font-size: 30px'>
+        <b>INDIAN INSTITUTE OF TECHNOLOGY,JODHPUR</b>
         </p>
       </div>  
       </div>
@@ -100,7 +100,8 @@ if(isset($_POST['xregister'])){
       <div class="row container">
         
       <div class="col s6">
-        <p class="row center" style="color:#00695c; font-size: 15px"><b>Login</b></p>
+        <p class="row center" style="color:#00695c; font-size: 20px"><b>Login</b></p>
+        <p><center>(For all users)</center></p>
         <form class="col s12" method="POST">
       <div class="row">
         <div class="input-field col s12">
@@ -128,7 +129,8 @@ if(isset($_POST['xregister'])){
       </div>
 
       <div class="col s6">
-                 <p class="row center" style="color:#00695c; font-size: 15px"><b>SignUp</b></p>
+                 <p class="row center" style="color:#00695c; font-size: 20px"><b>SignUp</b></p>
+                 <p><center>(Option only for Students newly entering the Institute in Btech,Mtech or Phd)</center></p>
                  <form class="col s12" method="POST">
             <div class="row">
                 <div class="input-field col s12">
@@ -144,7 +146,7 @@ if(isset($_POST['xregister'])){
                 <label for="email">email-Address</label>
               </div>
                 <div class="input-field col s12">
-                <input name="xnumber" id="number" type="tel" required>
+                <input name="xnumber" id="number" type="tel" minlength=10 maxlength=10 required>
                 <label for="number">phone-Number</label>
               </div>
               <div class="input-field col s12">
@@ -159,15 +161,31 @@ if(isset($_POST['xregister'])){
                 <input password="password" id="last_name" name="xpassword" type="password" required>
                 <label for="last_name">re-type password</label>
               </div>
-              <div class="input-field col s12">
-               <select name="type">
-                  <option value="" disabled selected>Choose your option</option>
-                  <option value="1">Student</option>
-                  <option value="2">Staff</option>
-                  <option value="3">Faculty</option>
-                </select>
-                <label>Select Type</label>
+
+            <div>
+                   <div class="input-field col s12">
+                    <select name="Gender">
+                      <option value="" disabled selected>Choose your option</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Others">Others</option>
+                    </select>
+                    <label>Select Gender</label>
+                  </div>
               </div>
+
+              <div>
+                   <div class="input-field col s12">
+                    <select name="type">
+                      <option value="" disabled selected>Choose your option</option>
+                      <option value="Btech">Btech</option>
+                      <option value="Mtech">Mtech</option>
+                      <option value="Phd">Phd</option>
+                    </select>
+                    <label>Select Type</label>
+                  </div>
+              </div>
+            
               <button class="waves-effect waves-light btn" name="xregister" type='submit'>REGISTER</button>
             </div>
             </form>
